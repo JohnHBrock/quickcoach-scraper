@@ -97,6 +97,9 @@ def parse_exercises_from_plan(driver) -> List[Dict[str, str]]:
     """
     Extract exercises from the rendered plan page using JavaScript.
     QuickCoach uses React/MUI, so we need to parse the rendered DOM, not raw HTML.
+
+    Returns exercises with their associated "Last:" link indices to avoid
+    index mismatch issues in supersets.
     """
     extract_script = """
     const exercises = [];
@@ -130,12 +133,61 @@ def parse_exercises_from_plan(driver) -> List[Dict[str, str]]:
                 }
             }
 
-            // Only add if we have a name
-            if (name && name !== 'Reps:' && name !== 'Last:') {
+            // Find the "Last:" link within this div's subtree
+            // For supersets, we need to be more careful about which link belongs to which exercise
+            let lastLinkIndex = -1;
+            const lastSpans = div.querySelectorAll('span.MuiTypography-link');
+
+            // Try to find the link whose surrounding text contains this exercise name
+            // and is the smallest/most specific container
+            let bestMatch = null;
+            let bestMatchSize = Infinity;
+
+            for (let span of lastSpans) {
+                if (span.innerText === 'Last:') {
+                    // Walk up the DOM tree to find a container that mentions this exercise
+                    let currentParent = span.parentElement;
+                    let foundAtLevel = -1;
+
+                    for (let level = 0; level < 10 && currentParent; level++) {
+                        const parentText = currentParent.innerText || '';
+
+                        // Check if this container has our exercise name
+                        if (parentText.includes(name)) {
+                            const textSize = parentText.length;
+
+                            // Prefer smaller containers (more specific match)
+                            if (textSize < bestMatchSize) {
+                                bestMatchSize = textSize;
+                                bestMatch = span;
+                                foundAtLevel = level;
+                            }
+                            break;
+                        }
+
+                        currentParent = currentParent.parentElement;
+                    }
+                }
+            }
+
+            if (bestMatch) {
+                // Find the global index of this span among all "Last:" links
+                const allLastLinks = document.querySelectorAll('span.MuiTypography-link');
+                for (let i = 0; i < allLastLinks.length; i++) {
+                    if (allLastLinks[i] === bestMatch && allLastLinks[i].innerText === 'Last:') {
+                        lastLinkIndex = i;
+                        break;
+                    }
+                }
+            }
+
+            // Only add if we have a name and found a link
+            if (name && name !== 'Reps:' && name !== 'Last:' && lastLinkIndex >= 0) {
                 exercises.push({
                     name: name,
                     reps: reps,
-                    last: last
+                    last: last,
+                    lastLinkIndex: lastLinkIndex
                 });
             }
         }
@@ -161,8 +213,8 @@ def parse_exercises_from_plan(driver) -> List[Dict[str, str]]:
     for ex in exercises:
         blocks.append({
             "exercise_name": ex["name"],
-            "exercise_id": "",  # TODO: extract exercise ID from API calls
             "last": ex["last"],
+            "last_link_index": ex["lastLinkIndex"],
         })
 
     return blocks
@@ -450,16 +502,17 @@ def main() -> None:
             for idx, ex in enumerate(exercises):
                 name = ex["exercise_name"]
                 last = ex["last"]
+                last_link_index = ex["last_link_index"]
 
-                # Try to click on the "Last:" link to open history modal
+                # Try to click on the correct "Last:" link using the index we found during parsing
                 try:
-                    # Find the Nth "Last:" link (0-indexed)
+                    # Click the specific "Last:" link that corresponds to this exercise
                     click_last_script = f"""
                     const spans = document.querySelectorAll('span.MuiTypography-link');
                     let count = 0;
                     for (let span of spans) {{
                         if (span.innerText === 'Last:') {{
-                            if (count === {idx}) {{
+                            if (count === {last_link_index}) {{
                                 span.click();
                                 return true;
                             }}
