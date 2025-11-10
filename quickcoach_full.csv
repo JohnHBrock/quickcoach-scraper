@@ -1,0 +1,220 @@
+plan_title,exercise_name,date,result
+New plan 2,Back squats,2025-11-06,85x10 95x8 105x6 105x6
+New plan 2,Back squats,2025-10-18,85x10 95x8 95x8 105x6
+New plan 2,Back squats,2025-10-07,85x10 95x10 100x8 105x6 STAY W/ FINAL WEIGHT
+New plan 2,Back squats,2025-09-23,85x12 95x10 95x8 100x6
+New plan 2,Back squats,2025-08-25,95x12 95x10 100x8 100x6
+New plan 2,Back squats,2025-08-02,85x12 95x10 100x8 100x8
+New plan 2,Back squats,2025-07-24,75x12 85x10 85x10 95x10
+New plan 2,half kneeling single lat pull down,2025-11-06,140x10 150x8 160x8
+New plan 2,half kneeling single lat pull down,2025-10-18,130x10 140x8 150x8
+New plan 2,half kneeling single lat pull down,2025-10-07,130x10 140x8 150x6 make sure to stay to outside
+New plan 2,half kneeling single lat pull down,2025-09-23,120x10 130x8 140x6
+New plan 2,half kneeling single lat pull down,2025-08-25,120x12 130x10 140x6
+New plan 2,half kneeling single lat pull down,2025-08-02,110x12 120x10 130x8
+New plan 2,half kneeling single lat pull down,2025-07-24,100x12 120x10 120x10
+New plan 2,incline chest press machine,2025-11-06,80x10 85x8 90x6H 90x3H
+New plan 2,incline chest press machine,2025-10-18,80x10 90x8 95x4H DS:(90x3 60x3)
+New plan 2,incline chest press machine,2025-10-07,55x10 60x8 stopped due to unrelated wrist pain
+Full workout 2,incline chest press machine,2025-08-23,70x12 80x10 90x10
+Full 1,incline chest press machine,2025-07-10,70x10 75x8 80x6 90x6H
+Full 1,incline chest press machine,2025-06-18,65x10 75x8 90x5H 80x4
+Full 1,incline chest press machine,2025-06-03,60x10 70x8 70x8 80x6
+Full 1,incline chest press machine,2025-05-16,50x12 60x10 70x8 75x6
+Full 1,incline chest press machine,2025-04-29,"40x12, 50x10, 60x8, 70x8H"
+Full 1,incline chest press machine,2025-04-15,"40x10 neutral, 40x10 neutral grip"
+New plan 2,assisted step-ups,2025-11-06,30x10 30x10 30x10
+New plan 2,assisted step-ups,2025-10-18,30x10 30x10 30x10
+New plan 2,assisted step-ups,2025-10-07,30x10 30x10 30x10
+New plan 2,assisted step-ups,2025-09-23,20x10 20x10 30x10
+New plan 2,assisted step-ups,2025-08-25,20x10 20x10 20x10
+New plan 2,assisted step-ups,2025-08-02,20x10 20x10 20x10
+New plan 2,assisted step-ups,2025-07-24,0x10 0x10 20x10
+New plan 2,assisted dips,2025-11-06,30x8 40x6 55x5
+New plan 2,assisted dips,2025-10-18,40x10 40x4H 55x4H
+New plan 2,assisted dips,2025-10-07,"wrist hurt, so cable dips: 80x10 80x10 80x10"
+New plan 2,assisted dips,2025-09-23,40x8 50x6 55x6
+New plan 2,assisted dips,2025-08-25,45x10 45x5 60x8
+New plan 2,assisted dips,2025-08-02,45x6 55x7 70x6
+New plan 2,assisted dips,2025-07-24,30x4 55x8 70x7
+New plan 2,rear delt machine,2025-11-06,80x10 80x10 80x8H-hold 10 sec first
+New plan 2,rear delt machine,2025-10-18,80x10 85x8H 80x10
+New plan 2,rear delt machine,2025-10-07,75x10 80x10 85x10
+New plan 2,rear delt machine,2025-09-23,75x10 80x10 80x8H
+New plan 2,rear delt machine,2025-08-25,75x10 80x10 80x9H
+New plan 2,rear delt machine,2025-08-02,70x10 75x10 80x10
+New plan 2,rear delt machine,2025-07-24,70x10 80x10 75x7H
+New plan 1,DB shoulder press,2025-11-03,115x10 125x8 125x6 130x8
+New plan 1,DB shoulder press,2025-10-16,105x10 115x8 120x6 125x10
+New plan 1,DB shoulder press,2025-10-01,105x10 115x8 120x6 120x6
+New plan 1,DB shoulder press,2025-09-20,100x11 115x8 115x8 120x6
+New plan 1,DB shoulder press,2025-08-14,100x12 105x10 115x8 120x6
+New plan 1,DB shoulder press,2025-07-31,90x12 100x10 110x8 110x8
+New plan 1,DB shoulder press,2025-07-21,85x12 100x10 100x10 100x10
+New plan 1,Lat pull down machine (wide),2025-11-03,30x10 30x8 35x6H 35x3H
+New plan 1,Lat pull down machine (wide),2025-10-16,25x10 30x8 30x6 35x7H
+New plan 1,Lat pull down machine (wide),2025-10-01,25x10 30x8 35x6 35x5H
+New plan 1,Lat pull down machine (wide),2025-09-20,30x10 35x6 (35x3->25x3) 30x6
+New plan 1,Lat pull down machine (wide),2025-08-14,30x12 30x10 35x7 35x4
+New plan 1,Lat pull down machine (wide),2025-07-31,20x12 25x10 30x8 30x8
+New plan 1,Lat pull down machine (wide),2025-07-21,20x12 25x10 25x10 25x10
+Full 2,Lat pull down machine (wide),2025-07-12,20x10 25x6 DS:(30x6 17.5x3)
+Full 2,Lat pull down machine (wide),2025-06-25,20x12 25x8 DS:(30x9 17.5x3)
+Full 2,Lat pull down machine (wide),2025-06-07,20x12 25x10H 25x5H 25x5H
+Full 2,Lat pull down machine (wide),2025-05-22,20x12 20x10 25x8 25x6
+Full 2,Lat pull down machine (wide),2025-05-03,20x12 25x10 25x4
+Full 1,Lat pull down machine (wide),2025-04-19,"20x10, 25x10, 25x7"
+New plan 1,leg curl machine (seated),2025-11-03,200x10 220x8 240x6 250x5H
+New plan 1,leg curl machine (seated),2025-10-16,200x10 215x8 230x6 240x6
+New plan 1,leg curl machine (seated),2025-10-01,200x10 210x8 220x6 230x6
+New plan 1,leg curl machine (seated),2025-09-20,200x10 200x8 200x8 210x6
+New plan 1,leg curl machine (seated),2025-08-14,190x12 200x10 210x8 215x6
+New plan 1,leg curl machine (seated),2025-07-31,180x12 180x10 200x8 200x8
+New plan 1,leg curl machine (seated),2025-07-21,180x12 180x10 180x10 180x10
+New plan 1,Leg press machine (quad),2025-11-03,150x10 160x8 160x6 170x6
+New plan 1,Leg press machine (quad),2025-10-16,140x10 150x8 160x6 170x6
+New plan 1,Leg press machine (quad),2025-10-01,140x
+New plan 1,Leg press machine (quad),2025-10-01,140x10 150x8 160x6 160x6
+New plan 1,Leg press machine (quad),2025-09-20,140x10 150x8 150x8 160x6
+Full workout 2,Leg press machine (quad),2025-08-23,150x12 150x10 150x8
+New plan 1,Leg press machine (quad),2025-08-14,145x12 150x10 150x8 155x6
+New plan 1,Leg press machine (quad),2025-07-31,140x12 140x10 150x8 150x8
+New plan 1,Leg press machine (quad),2025-07-21,140x12 140x10 140x10 140x10
+Full 4,Leg press machine (quad),2025-07-19,140x10 145x8 DS:(160x8 130x10)
+Full 4,Leg press machine (quad),2025-07-04,135x10 140x8 145x6 150x10
+Full 4,Leg press machine (quad),2025-06-16,130x10 140x8 145x6 145x6
+Full 4,Leg press machine (quad),2025-05-31,120x10 130x8 135x8 140x6
+Full 4,Leg press machine (quad),2025-05-14,100x12 110x10 120x10 130x8
+Full 4,Leg press machine (quad),2025-04-25,"90, 100, 110"
+Full 3,Leg press machine (quad),2025-04-22,"80, 90, 90"
+New plan 1,overhand cable row,2025-11-03,90x10 100x8 105x5H 105x3H
+New plan 1,overhand cable row,2025-10-16,w/ foam under me 90x10 100x8 110x4H 110x4H
+New plan 1,overhand cable row,2025-10-01,90x10 100x8 110x6 110x5H
+New plan 1,overhand cable row,2025-09-20,80x10 90x8 95x8 100x6
+New plan 1,overhand cable row,2025-08-14,75x12 85x10 95x8 100x6
+New plan 1,overhand cable row,2025-07-31,70x12 80x10 90x8 95x8
+New plan 1,overhand cable row,2025-07-21,80x12 90x10 90x10 DS:(90x3 70x5)
+New plan 1,flat bench press machine,2025-11-03,80x10 80x8 90x6 95x8
+New plan 1,flat bench press machine,2025-10-16,75x10 85x8 90x6 90x8
+New plan 1,flat bench press machine,2025-10-01,75x10 80x8 85x6 90x6
+New plan 1,flat bench press machine,2025-09-20,70x10 75x8 80x8 85x6
+New plan 1,flat bench press machine,2025-08-14,70x12 75x10 85x8 85x6
+New plan 1,flat bench press machine,2025-07-31,65x12 70x10 75x8 75x8
+New plan 1,flat bench press machine,2025-07-21,70x12 75x10 75x10 75x10
+New plan 1,Adductor machine,2025-11-03,100x10 110x8 120x6 130x8
+New plan 1,Adductor machine,2025-10-16,90x10 100x8 110x6 120x8
+New plan 1,Adductor machine,2025-10-01,90x10 100x8 110x6 110x6
+New plan 1,Adductor machine,2025-09-20,90x10 100x8 100x8 110x6
+New plan 1,Adductor machine,2025-08-14,90x12 90x10
+New plan 1,Adductor machine,2025-07-31,80x12 90x10 100x8 100x8
+New plan 1,Adductor machine,2025-07-21,80x12 90x10 90x10 90x20H
+Full 1,Adductor machine,2025-07-10,80x10 90x8 100x8
+Full 1,Adductor machine,2025-06-18,80x10 90x8 100x6
+Full 1,Adductor machine,2025-06-03,80x10 80x8 90x6
+Full 1,Adductor machine,2025-05-16,60x12 70x10 80x8
+Full 1,Adductor machine,2025-04-29,"50x10, 70x10, 70x10"
+Full 1,Adductor machine,2025-04-15,"50x10, 50x10, 50x10"
+New plan 1,Hip thrusts (full range),2025-11-03,65x10 75x8 80x6 90x8
+New plan 1,Hip thrusts (full range),2025-10-16,65x10 75x8 80x6 85x8
+New plan 1,Hip thrusts (full range),2025-10-01,65x10 75x8 80x6 80x6
+New plan 1,Hip thrusts (full range),2025-09-20,50x10 60x8 65x8 75x6
+New plan 1,Hip thrusts (full range),2025-08-14,50x12 60x10
+New plan 1,Hip thrusts (full range),2025-07-31,45x12 50x10 50x8 60x8
+New plan 1,Hip thrusts (full range),2025-07-21,45x12 50x10 50x10 50x10
+New plan 4,Pendulum Squat (high),2025-10-30,30x10 35x7 35x6 35x6
+New plan 4,Pendulum Squat (high),2025-10-14,25x10 30x8 35x6 35x6
+New plan 4,Pendulum Squat (high),2025-09-29,25x10 30x8 30x8 35x6
+New plan 4,Pendulum Squat (high),2025-09-16,20x12 20x10 25x8 25x8
+New plan 4,Pendulum Squat (high),2025-08-11,25x12 35x10 25x8 25x8
+New plan 4,single DB bent rows,2025-10-30,55x10 60x8 60x6
+New plan 4,single DB bent rows,2025-10-14,50x10 55x8 55x6
+New plan 4,single DB bent rows,2025-09-29,50x10 50x8 55x6
+New plan 4,single DB bent rows,2025-09-16,40x12 45x10 50x8
+New plan 4,single DB bent rows,2025-08-11,35x12 45x10 50x8 start w/ right arm next time
+New plan 4,incline DB chest flys,2025-10-30,30x10 35x8 40x6
+New plan 4,incline DB chest flys,2025-10-14,30x10 30x8 35x6 35x6
+New plan 4,incline DB chest flys,2025-09-29,30x10 30x8 30x8 35x6
+New plan 4,incline DB chest flys,2025-09-16,30x12 30x10 30x8 30x8
+New plan 4,incline DB chest flys,2025-08-11,25x12 30x10 35x8 35x8
+New plan 4,pendulum kickback,2025-10-30,110x10 110x10 115x10
+New plan 4,pendulum kickback,2025-10-14,100x10 110x10 110x10
+New plan 4,pendulum kickback,2025-09-29,100x10 100x10 110x10
+New plan 4,pendulum kickback,2025-09-16,90x10 100x10 100x10
+New plan 4,pendulum kickback,2025-08-11,90x10 100x10 100x10
+Full 3,pendulum kickback,2025-07-15,80x10 90x8 100x8
+Full 3,pendulum kickback,2025-07-01,80x10 90x8 100x6
+Full 3,pendulum kickback,2025-06-13,70x10 80x8 90x6
+Full 3,pendulum kickback,2025-05-29,60x10 70x10 70x8
+Full 3,pendulum kickback,2025-05-10,45x10 55x10 65x10
+Full 3,pendulum kickback,2025-04-22,"25, 35, 45"
+New plan 4,incline Y-raises,2025-10-30,15x10 17.5x10 17.5x10
+New plan 4,incline Y-raises,2025-10-14,15x10 15x10 17.5x10
+New plan 4,incline Y-raises,2025-09-29,15x10 15x10 17.5x10
+New plan 4,incline Y-raises,2025-09-16,12x10 15x10 15x10
+Full workout 1,incline Y-raises,2025-08-20,12x12 15x10 15x8
+New plan 4,incline Y-raises,2025-08-11,10x10 12x10 15x10
+New plan 4,DB skull crushers,2025-10-30,55x10 60x8 65x4H
+New plan 4,DB skull crushers,2025-10-14,50x10 60x8 60x6
+New plan 4,DB skull crushers,2025-09-29,45x12 50x10 55x8
+New plan 4,DB skull crushers,2025-09-16,45x12 55x8 50x8
+New plan 4,DB skull crushers,2025-08-11,45x12 55x8 45x10
+New plan 4,barbell biceps curls,2025-10-30,20x10 20x8 (25x2->25x3)
+New plan 4,barbell biceps curls,2025-10-14,20x10 20x8 25x6
+New plan 4,barbell biceps curls,2025-09-29,20x12 20x10 20x8
+New plan 4,barbell biceps curls,2025-09-16,20x12 20x10 20x8
+New plan 4,barbell biceps curls,2025-08-11,20x12 20x10 20x10
+New plan 3,walking lunges,2025-10-28,8x10 8x10 10x10
+New plan 3,walking lunges,2025-10-11,0x10 8x10 8x10
+New plan 3,walking lunges,2025-09-27,0x10 0x10 8x10
+New plan 3,walking lunges,2025-08-29,0x10 0x10 0x10
+New plan 3,walking lunges,2025-08-08,0x3 0x3 0x3
+New plan 3,walking lunges,2025-07-29,3x0
+New plan 3,assisted pull-ups,2025-10-28,30x6 40x6H 60x6H
+New plan 3,assisted pull-ups,2025-10-11,30x5 45x7 60x6
+New plan 3,assisted pull-ups,2025-09-27,40x7 55x6 70x6
+New plan 3,assisted pull-ups,2025-08-29,45x8 60x8 70x6
+Full workout 1,assisted pull-ups,2025-08-20,55x10 60x8 70x8
+New plan 3,assisted pull-ups,2025-08-08,55x8 60x7 75x10
+New plan 3,assisted pull-ups,2025-07-29,70x10 75x10 75x7
+New plan 3,Shoulder press machine,2025-10-28,55x10 60x8 70x6 75x5H
+New plan 3,Shoulder press machine,2025-10-11,50x10 55x8 60x6 65x6
+New plan 3,Shoulder press machine,2025-09-27,55x10 60x8 60x6 60x5H
+New plan 3,Shoulder press machine,2025-08-29,55x12 60x10 60x6 60x6
+New plan 3,Shoulder press machine,2025-08-08,50x12 55x10 60x8 60x8
+New plan 3,Shoulder press machine,2025-07-29,70x12 60x9 50x9 40x10
+New plan 3,Shoulder press machine,2025-07-29,70x12 60x9 50x9 40x10
+New plan 3,leg extension machine,2025-10-28,150x(5+10) 160x(5+10) 165x(5+10)H
+New plan 3,leg extension machine,2025-10-11,150x(5+10) 160x(5+10) 160x(5+10)
+New plan 3,leg extension machine,2025-09-27,150x(5+10) 150x(5+10) 150x(5+10)
+New plan 3,leg extension machine,2025-08-29,150x(5+10) 150x(5+10) 150x(5+10)
+New plan 3,leg extension machine,2025-08-08,150x(5+10) 150x(5+10) 150x(5+10)
+New plan 3,leg extension machine,2025-07-29,140x(5+10) 150x(5+10) 150x(5+10)
+New plan 3,leg extension machine,2025-07-29,140x(5+10) 150x(5+10) 150x(5+10)
+New plan 3,abductor machine (lean+straight),2025-10-28,220x10 230x8 245x6
+New plan 3,abductor machine (lean+straight),2025-10-11,215x10 225x8 245x6
+New plan 3,abductor machine (lean+straight),2025-09-27,210x10 215x8 220x6
+New plan 3,abductor machine (lean+straight),2025-08-29,200x10 210x8 220x8
+Full workout 1,abductor machine (lean+straight),2025-08-20,190x12 200x10 210x8
+New plan 3,abductor machine (lean+straight),2025-08-08,190x12 200x10 210x8
+New plan 3,abductor machine (lean+straight),2025-07-29,180x12 190x10 200x10
+New plan 3,abductor machine (lean+straight),2025-07-29,180x12 190x10 200x10
+Full 2,abductor machine (lean+straight),2025-07-12,160x12 170x10 DS:(200x8 160x6)
+Full 2,abductor machine (lean+straight),2025-06-25,160x10 170x10 DS:(190x8 150x4)
+Full 2,abductor machine (lean+straight),2025-06-07,155x12 160x10 170x8 180x8
+Full 2,abductor machine (lean+straight),2025-05-22,150x12 10x155 165x8 170x6
+Full 2,abductor machine (lean+straight),2025-05-03,140x12 150x10 160x8
+Full 1,abductor machine (lean+straight),2025-04-19,"130, 140, 140"
+New plan 3,deficit push-ups,2025-10-28,(no knees)X7 (knees)x10 (knees)x9
+New plan 3,deficit push-ups,2025-10-11,deficit cheat press machine: 50x10 50x9H 40x10
+New plan 3,deficit push-ups,2025-09-27,12 10 10
+New plan 3,deficit push-ups,2025-08-29,12 10 8
+New plan 3,deficit push-ups,2025-08-08,12 8 8
+New plan 3,deficit push-ups,2025-07-29,10 10 10
+New plan 3,deficit push-ups,2025-07-29,10 10 10
+New plan 3,No cheat DB biceps curls,2025-10-28,20x10 20x8 25x5H
+New plan 3,No cheat DB biceps curls,2025-10-11,20x10 20x8 25x4H
+New plan 3,No cheat DB biceps curls,2025-09-27,20x10 20x8 25x4H
+New plan 3,No cheat DB biceps curls,2025-08-29,17.5x10 20x8 20x10
+New plan 3,No cheat DB biceps curls,2025-08-08,17.5x12 20x10 20x6H
+New plan 3,No cheat DB biceps curls,2025-07-29,20x12 20x8 17.5x9
+New plan 3,No cheat DB biceps curls,2025-07-29,20x12 20x8 17.5x9
