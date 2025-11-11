@@ -6,8 +6,9 @@ import csv
 import re
 import sys
 import time
+from collections import defaultdict
 from dataclasses import dataclass
-from typing import Iterable, List, Dict
+from typing import Iterable, List, Dict, Set
 
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
@@ -90,6 +91,16 @@ def unique(seq: Iterable[str]) -> List[str]:
             seen.add(x)
             out.append(x)
     return out
+
+
+def sanitize_filename(slug: str) -> str:
+    """
+    Sanitize a slug to be safe for use in filenames.
+    Replace invalid filename characters with underscores.
+    """
+    # Invalid characters in filenames: / \ : * ? " < > | and spaces
+    invalid_chars = r'[/\\:*?"<>|\s]'
+    return re.sub(invalid_chars, '_', slug)
 
 
 
@@ -399,12 +410,64 @@ def discover_plan_urls(driver, base: str) -> List[str]:
     return unique(urls)
 
 
+def generate_pivoted_csv(input_csv: str, output_csv: str) -> None:
+    """
+    Generate a pivoted (wide format) CSV from the regular (long format) CSV.
+    Exercises become rows, dates become columns.
+    """
+    # Data structure: { exercise_name: { date: result } }
+    exercise_data: Dict[str, Dict[str, str]] = defaultdict(dict)
+    all_dates: Set[str] = set()
+
+    # Read input CSV
+    with open(input_csv, "r", encoding="utf-8") as f:
+        reader = csv.DictReader(f)
+        for row in reader:
+            exercise_name = row["exercise_name"]
+            date = row["date"]
+            result = row["result"]
+
+            # Skip rows without dates
+            if not date:
+                continue
+
+            exercise_data[exercise_name][date] = result
+            all_dates.add(date)
+
+    # Sort dates chronologically (most recent first)
+    sorted_dates = sorted(all_dates, reverse=True)
+
+    # Sort exercises alphabetically
+    sorted_exercises = sorted(exercise_data.keys())
+
+    # Write output CSV
+    with open(output_csv, "w", newline="", encoding="utf-8") as f:
+        writer = csv.writer(f)
+
+        # Write header: exercise_name, date1, date2, ...
+        writer.writerow(["exercise_name"] + sorted_dates)
+
+        # Write data rows
+        for exercise in sorted_exercises:
+            row = [exercise]
+            for date in sorted_dates:
+                # Get result for this exercise on this date (empty if not present)
+                result = exercise_data[exercise].get(date, "")
+                row.append(result)
+            writer.writerow(row)
+
+    print(f"Wrote pivoted CSV -> {output_csv}")
+    print(f"  Exercises: {len(sorted_exercises)}")
+    print(f"  Dates: {len(sorted_dates)}")
+
+
 # ----------------- main -----------------
 
 
 def main() -> None:
     ap = argparse.ArgumentParser(
-        description="Export ALL QuickCoach exercise history to CSV (Selenium using anchor hrefs)."
+        description="Export ALL QuickCoach exercise history to CSV. "
+                    "Outputs quickcoach-{slug}.csv and quickcoach-pivot-{slug}.csv"
     )
     ap.add_argument(
         "--base",
@@ -414,12 +477,7 @@ def main() -> None:
     ap.add_argument(
         "--slug",
         required=True,
-        help="Client path, e.g. 'pt/fitcojohn'",
-    )
-    ap.add_argument(
-        "--out",
-        default="quickcoach_full.csv",
-        help="Output CSV file",
+        help="Client path, e.g. 'pt/fitcojohn'. Output files will be named based on this.",
     )
     ap.add_argument(
         "--delay",
@@ -432,10 +490,21 @@ def main() -> None:
         action="store_true",
         help="Run with visible Chrome window (useful to confirm selectors).",
     )
+    ap.add_argument(
+        "--skip-pivot",
+        action="store_true",
+        help="Skip generating the pivoted CSV (only output the regular long-format CSV).",
+    )
     args = ap.parse_args()
 
     base = args.base.rstrip("/")
-    client_url = f"{base}/{args.slug.strip('/')}/"
+    slug = args.slug.strip("/")
+    client_url = f"{base}/{slug}/"
+
+    # Generate output filenames from slug
+    sanitized_slug = sanitize_filename(slug)
+    output_csv = f"quickcoach-{sanitized_slug}.csv"
+    pivoted_csv = f"quickcoach-pivot-{sanitized_slug}.csv"
 
     chrome_opts = Options()
     if not args.headful:
@@ -580,7 +649,7 @@ def main() -> None:
                     time.sleep(args.delay)
 
         # Write CSV
-        with open(args.out, "w", newline="", encoding="utf-8") as f:
+        with open(output_csv, "w", newline="", encoding="utf-8") as f:
             w = csv.writer(f)
             w.writerow(
                 [
@@ -600,7 +669,15 @@ def main() -> None:
                     ]
                 )
 
-        print(f"Wrote {len(rows)} rows -> {args.out}")
+        print(f"Wrote {len(rows)} rows -> {output_csv}")
+
+        # Generate pivoted CSV unless --skip-pivot was specified
+        if not args.skip_pivot:
+            try:
+                generate_pivoted_csv(output_csv, pivoted_csv)
+            except Exception as e:
+                print(f"Warning: Could not generate pivoted CSV: {e}", file=sys.stderr)
+
     finally:
         driver.quit()
 
