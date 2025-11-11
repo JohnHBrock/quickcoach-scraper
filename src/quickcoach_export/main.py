@@ -10,7 +10,7 @@ def main() -> None:
     """Parse arguments and run the QuickCoach export."""
     ap = argparse.ArgumentParser(
         description="Export ALL QuickCoach exercise history to CSV. "
-                    "Outputs quickcoach-{slug}.csv and quickcoach-pivot-{slug}.csv"
+        "Outputs quickcoach-{slug}.csv and quickcoach-pivot-{slug}.csv"
     )
     ap.add_argument(
         "--base",

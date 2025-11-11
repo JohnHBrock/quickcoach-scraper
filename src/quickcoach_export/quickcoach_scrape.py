@@ -13,8 +13,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.common.exceptions import NoSuchElementException, TimeoutException
+from selenium.common.exceptions import TimeoutException
 
 
 """
@@ -70,14 +69,15 @@ def parse_date_to_iso(date_str: str) -> str:
 
     try:
         # Remove ordinal suffixes (st, nd, rd, th)
-        date_str = re.sub(r'(\d+)(st|nd|rd|th)', r'\1', date_str)
+        date_str = re.sub(r"(\d+)(st|nd|rd|th)", r"\1", date_str)
 
         # Parse the date
         from datetime import datetime
-        dt = datetime.strptime(date_str, '%b %d %Y')
+
+        dt = datetime.strptime(date_str, "%b %d %Y")
 
         # Return in YYYY-MM-DD format
-        return dt.strftime('%Y-%m-%d')
+        return dt.strftime("%Y-%m-%d")
     except Exception:
         return ""
 
@@ -99,8 +99,7 @@ def sanitize_filename(slug: str) -> str:
     """
     # Invalid characters in filenames: / \ : * ? " < > | and spaces
     invalid_chars = r'[/\\:*?"<>|\s]'
-    return re.sub(invalid_chars, '_', slug)
-
+    return re.sub(invalid_chars, "_", slug)
 
 
 def parse_exercises_from_plan(driver) -> List[Dict[str, str]]:
@@ -221,11 +220,13 @@ def parse_exercises_from_plan(driver) -> List[Dict[str, str]]:
     # Convert to the expected format
     blocks = []
     for ex in exercises:
-        blocks.append({
-            "exercise_name": ex["name"],
-            "last": ex["last"],
-            "last_link_index": ex["lastLinkIndex"],
-        })
+        blocks.append(
+            {
+                "exercise_name": ex["name"],
+                "last": ex["last"],
+                "last_link_index": ex["lastLinkIndex"],
+            }
+        )
 
     return blocks
 
@@ -238,11 +239,12 @@ def extract_history_from_modal(driver) -> List[dict]:
     time.sleep(1.5)  # Wait for modal to load
 
     # Check if modal is present
-    modal_present = driver.execute_script("return document.querySelector('[role=\"dialog\"]') !== null;")
+    modal_present = driver.execute_script(
+        "return document.querySelector('[role=\"dialog\"]') !== null;"
+    )
     if not modal_present:
         print("        [DEBUG] No modal found with [role='dialog']")
         return []
-
 
     extract_script = """
     const entries = [];
@@ -316,7 +318,9 @@ def close_modal(driver):
         time.sleep(0.8)
 
         # Verify modal is closed
-        modal_closed = driver.execute_script("return document.querySelector('[role=\"dialog\"]') === null;")
+        modal_closed = driver.execute_script(
+            "return document.querySelector('[role=\"dialog\"]') === null;"
+        )
         if not modal_closed:
             # Try Escape key as fallback
             driver.execute_script("""
@@ -500,7 +504,7 @@ def run_export(
             WebDriverWait(driver, 15).until(
                 lambda d: (
                     "Previous Plans" in d.page_source
-                    or bool(d.find_elements(By.CSS_SELECTOR, 'div.MuiStack-root'))
+                    or bool(d.find_elements(By.CSS_SELECTOR, "div.MuiStack-root"))
                 )
             )
         except TimeoutException:
@@ -533,7 +537,10 @@ def run_export(
             time.sleep(2.0)  # let page render
 
             # Extract data from rendered page
-            plan_title = driver.execute_script("return document.body.innerText.split('\\n')[0]") or "Plan"
+            plan_title = (
+                driver.execute_script("return document.body.innerText.split('\\n')[0]")
+                or "Plan"
+            )
 
             exercises = parse_exercises_from_plan(driver)
 
