@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 from __future__ import annotations
 
-import argparse
 import csv
 import re
 import sys
@@ -461,60 +460,35 @@ def generate_pivoted_csv(input_csv: str, output_csv: str) -> None:
     print(f"  Dates: {len(sorted_dates)}")
 
 
-# ----------------- main -----------------
+# ----------------- scraping orchestration -----------------
 
 
-def main() -> None:
-    ap = argparse.ArgumentParser(
-        description="Export ALL QuickCoach exercise history to CSV. "
-                    "Outputs quickcoach-{slug}.csv and quickcoach-pivot-{slug}.csv"
-    )
-    ap.add_argument(
-        "--base",
-        default="https://app.quickcoach.fit",
-        help="Base URL (default: https://app.quickcoach.fit)",
-    )
-    ap.add_argument(
-        "--slug",
-        required=True,
-        help="Client path, e.g. 'pt/fitcojohn'. Output files will be named based on this.",
-    )
-    ap.add_argument(
-        "--delay",
-        type=float,
-        default=0.15,
-        help="Delay between history calls (seconds)",
-    )
-    ap.add_argument(
-        "--headful",
-        action="store_true",
-        help="Run with visible Chrome window (useful to confirm selectors).",
-    )
-    ap.add_argument(
-        "--skip-pivot",
-        action="store_true",
-        help="Skip generating the pivoted CSV (only output the regular long-format CSV).",
-    )
-    args = ap.parse_args()
+def run_export(
+    client_url: str,
+    output_csv: str,
+    pivoted_csv: str,
+    delay: float = 0.15,
+    headful: bool = False,
+    skip_pivot: bool = False,
+) -> None:
+    """
+    Run the QuickCoach export scraper.
 
-    base = args.base.rstrip("/")
-    slug = args.slug.strip("/")
-    client_url = f"{base}/{slug}/"
-
-    # Generate output filenames from slug
-    sanitized_slug = sanitize_filename(slug)
-    output_csv = f"quickcoach-{sanitized_slug}.csv"
-    pivoted_csv = f"quickcoach-pivot-{sanitized_slug}.csv"
-
+    Args:
+        client_url: Full URL to the QuickCoach client page
+        output_csv: Path to output CSV file
+        pivoted_csv: Path to pivoted CSV file
+        delay: Delay between history calls in seconds
+        headful: Show browser window if True
+        skip_pivot: Skip generating pivoted CSV if True
+    """
     chrome_opts = Options()
-    if not args.headful:
+    if not headful:
         chrome_opts.add_argument("--headless=new")
     chrome_opts.add_argument("--disable-gpu")
     chrome_opts.add_argument("--no-sandbox")
     chrome_opts.add_argument("--disable-dev-shm-usage")
 
-    # If macOS sandbox causes TMPDIR issues:
-    #   TMPDIR=$HOME/selenium-tmp SELENIUM_MANAGER_CACHE_DIR=$HOME/selenium-tmp ...
     driver = webdriver.Chrome(options=chrome_opts)
 
     try:
@@ -535,6 +509,9 @@ def main() -> None:
                 file=sys.stderr,
             )
             return
+
+        # Extract base URL from client_url for plan discovery
+        base = client_url.rstrip("/").rsplit("/", 1)[0]
 
         plan_urls = discover_plan_urls(driver, base)
         if not plan_urls:
@@ -645,8 +622,8 @@ def main() -> None:
                         )
                     )
 
-                if args.delay:
-                    time.sleep(args.delay)
+                if delay:
+                    time.sleep(delay)
 
         # Write CSV
         with open(output_csv, "w", newline="", encoding="utf-8") as f:
@@ -672,7 +649,7 @@ def main() -> None:
         print(f"Wrote {len(rows)} rows -> {output_csv}")
 
         # Generate pivoted CSV unless --skip-pivot was specified
-        if not args.skip_pivot:
+        if not skip_pivot:
             try:
                 generate_pivoted_csv(output_csv, pivoted_csv)
             except Exception as e:
@@ -680,7 +657,3 @@ def main() -> None:
 
     finally:
         driver.quit()
-
-
-if __name__ == "__main__":
-    main()

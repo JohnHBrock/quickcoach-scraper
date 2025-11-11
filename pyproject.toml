@@ -9,7 +9,7 @@ dependencies = [
 ]
 
 [project.scripts]
-quickcoach-export = "quickcoach_scrape:main"
+quickcoach-export = "quickcoach_export.main:main"
 
 [tool.uv]
 package = true
