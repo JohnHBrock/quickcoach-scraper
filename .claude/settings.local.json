@@ -2,7 +2,8 @@
   "permissions": {
     "allow": [
       "Bash(TMPDIR=\"$HOME/selenium-tmp\" SELENIUM_MANAGER_CACHE_DIR=\"$HOME/selenium-tmp\" uv run python:*)",
-      "Bash(TMPDIR=\"$HOME/selenium-tmp\" SELENIUM_MANAGER_CACHE_DIR=\"$HOME/selenium-tmp\" uv run:*)"
+      "Bash(TMPDIR=\"$HOME/selenium-tmp\" SELENIUM_MANAGER_CACHE_DIR=\"$HOME/selenium-tmp\" uv run:*)",
+      "Bash(git mv:*)"
     ],
     "deny": [],
     "ask": []

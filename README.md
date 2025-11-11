@@ -2,9 +2,23 @@
 
 Export your workout history from QuickCoach to CSV files.
 
-## Installation
+## Usage
 
-1. **Install uv** (Python package manager):
+### Run directly with uvx
+
+```bash
+uvx quickcoach-export --slug pt/fitcojohn
+```
+
+Replace `pt/fitcojohn` with your actual client path (the part after `app.quickcoach.fit/` in your QuickCoach URL).
+
+**Requirements:**
+- [uv](https://docs.astral.sh/uv/getting-started/installation/) installed: `curl -LsSf https://astral.sh/uv/install.sh | sh`
+- Chrome browser installed
+
+### Run from local repository (for development)
+
+1. **Install uv** (if not already installed):
    ```bash
    curl -LsSf https://astral.sh/uv/install.sh | sh
    ```
@@ -12,19 +26,14 @@ Export your workout history from QuickCoach to CSV files.
 2. **Install Chrome** (if not already installed):
    - Download from https://www.google.com/chrome/
 
-3. **Clone or download this repository**
+3. **Clone this repository and navigate to it**
 
-That's it! Dependencies (Selenium and ChromeDriver) are installed automatically when you run the script.
+4. **Run the script:**
+   ```bash
+   uv run quickcoach-export --slug pt/fitcojohn
+   ```
 
-## Usage
-
-Run the scraper with your QuickCoach client URL:
-
-```bash
-uv run python quickcoach_scrape.py --slug pt/fitcojohn
-```
-
-Replace `pt/fitcojohn` with your actual client path (the part after `app.quickcoach.fit/` in your QuickCoach URL).
+Dependencies (Selenium and ChromeDriver) are installed automatically.
 
 ### What it does
 
@@ -44,10 +53,13 @@ Replace `pt/fitcojohn` with your actual client path (the part after `app.quickco
 
 ```bash
 # Basic usage
-uv run python quickcoach_scrape.py --slug pt/fitcojohn
+uvx quickcoach-export --slug pt/fitcojohn
 
 # With custom delay and visible browser
-uv run python quickcoach_scrape.py --slug pt/fitcojohn --delay 0.3 --headful
+uvx quickcoach-export --slug pt/fitcojohn --delay 0.3 --headful
+
+# From local repo
+uv run quickcoach-export --slug pt/fitcojohn
 ```
 
 ## Troubleshooting

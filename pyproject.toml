@@ -1,9 +1,15 @@
 [project]
 name = "quickcoach-export"
 version = "0.1.0"
-description = "Add your description here"
+description = "Export your workout history from QuickCoach to CSV files"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
     "selenium>=4.38.0",
 ]
+
+[project.scripts]
+quickcoach-export = "quickcoach_scrape:main"
+
+[tool.uv]
+package = true
