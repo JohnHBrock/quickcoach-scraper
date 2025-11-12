@@ -1,6 +1,6 @@
 [project]
 name = "quickcoach-export"
-version = "0.1.0"
+version = "0.1.1"
 description = "Export your workout history from QuickCoach to CSV files"
 readme = "README.md"
 requires-python = ">=3.13"

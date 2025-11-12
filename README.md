@@ -11,7 +11,7 @@ Export your workout history from QuickCoach to CSV files.
 
 2. If you don't have the Chrome browser installed, you'll need to install it ([available here](https://www.google.com/chrome/dr/download/)).
 
-3. Run directly with `uvx`, specifying your personal QuickCoache URL slug. For example, if your QuickCoach URL is https://app.quickcoach.fit/pt/fitcojoseph123, then your slug is everything that appears after `http://app.qickcoach.fit/`:
+3. Run directly with `uvx`, specifying your personal QuickCoach URL slug. For example, if your QuickCoach URL is https://app.quickcoach.fit/pt/fitcojoseph123, then your slug is everything that appears after `http://app.quickcoach.fit/`:
    ```bash
    uvx quickcoach-export --slug pt/fitcojoseph123
    ```
