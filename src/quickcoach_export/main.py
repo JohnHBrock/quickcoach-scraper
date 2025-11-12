@@ -20,7 +20,7 @@ def main() -> None:
     ap.add_argument(
         "--slug",
         required=True,
-        help="Client path, e.g. 'pt/fitcojohn'. Output files will be named based on this.",
+        help="Client path, e.g. 'pt/fitcojoseph123'. Output files will be named based on this.",
     )
     ap.add_argument(
         "--delay",

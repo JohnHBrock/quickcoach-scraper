@@ -17,34 +17,17 @@ from selenium.common.exceptions import TimeoutException
 
 
 """
-QuickCoach export (Selenium, anchor-based)
------------------------------------------
+QuickCoach data scraper.
 
-This version is tuned to the layout visible in your screenshot:
+Extracts workout history from QuickCoach's React/MUI web application.
 
-- The My Plans page at:
-      https://app.quickcoach.fit/pt/fitcojohn/
-  shows a "Previous Plans" section with large cards:
-      "New plan 2", "New plan 1", etc.
-- On the right of each card there is a small purple icon which is
-  (critically) an <a> tag whose href includes `/plan/...`.
-
-We do NOT try to be clever with card text anymore.
-We simply:
-
-1. Open the client URL using Selenium (so JS can run).
-2. Collect ALL anchor hrefs that contain `/plan/` on that page
-   (and on any "Next" pages, if present).
-3. Visit each plan URL (with Selenium), grab the HTML.
-4. Parse exercises from the plan HTML with BeautifulSoup.
-5. For each exercise, try to extract an exerciseId from links/data.
-6. For each exerciseId, call:
-       /api/pt/client/exercise-history?exerciseId={id}
-   and append those rows.
-7. Write everything to CSV.
-
-If an exerciseId can't be found, you still get its visible "Last:"
-value for that plan (status=current-plan), but no history rows.
+The scraper works by:
+1. Opening the QuickCoach client page with Selenium to render JavaScript
+2. Discovering plan URLs by clicking on plan cards in the rendered DOM
+3. For each plan, extracting exercises using JavaScript DOM queries
+4. Clicking "Last:" links to open history modals
+5. Parsing exercise history from modal text content
+6. Writing results to long-format and pivoted CSV files
 """
 
 
@@ -107,8 +90,8 @@ def parse_exercises_from_plan(driver) -> List[Dict[str, str]]:
     Extract exercises from the rendered plan page using JavaScript.
     QuickCoach uses React/MUI, so we need to parse the rendered DOM, not raw HTML.
 
-    Returns exercises with their associated "Last:" link indices to avoid
-    index mismatch issues in supersets.
+    Returns exercises with their associated "Last:" link indices. This ensures
+    each exercise is correctly matched to its history link, especially in supersets.
     """
     extract_script = """
     const exercises = [];
