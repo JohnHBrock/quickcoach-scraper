@@ -4,36 +4,17 @@ Export your workout history from QuickCoach to CSV files.
 
 ## Usage
 
-### Run directly with uvx
-
-```bash
-uvx quickcoach-export --slug pt/fitcojohn
-```
-
-Replace `pt/fitcojohn` with your actual client path (the part after `app.quickcoach.fit/` in your QuickCoach URL).
-
-**Requirements:**
-- [uv](https://docs.astral.sh/uv/getting-started/installation/) installed: `curl -LsSf https://astral.sh/uv/install.sh | sh`
-- Chrome browser installed
-
-### Run from local repository (for development)
-
-1. **Install uv** (if not already installed):
+1. Install `uv` if not already installed by running the following command:
    ```bash
    curl -LsSf https://astral.sh/uv/install.sh | sh
    ```
 
-2. **Install Chrome** (if not already installed):
-   - Download from https://www.google.com/chrome/
+2. If you don't have the Chrome browser installed, you'll need to install it ([available here](https://www.google.com/chrome/dr/download/)).
 
-3. **Clone this repository and navigate to it**
-
-4. **Run the script:**
+3. Run directly with `uvx`, specifying your personal QuickCoache URL slug. For example, if your QuickCoach URL is https://app.quickcoach.fit/pt/fitcojoseph123, then your slug is everything that appears after `http://app.qickcoach.fit/`:
    ```bash
-   uv run quickcoach-export --slug pt/fitcojohn
+   uvx quickcoach-export --slug pt/fitcojoseph123
    ```
-
-Dependencies (Selenium and ChromeDriver) are installed automatically.
 
 ### What it does
 
@@ -45,7 +26,7 @@ Dependencies (Selenium and ChromeDriver) are installed automatically.
 
 ### Options
 
-- `--delay 0.2` - Add delay between exercises (default: 0.15 seconds)
+- `--delay 0.2` - Add delay between scraping exercises (default: 0.15 seconds)
 - `--headful` - Show browser window while running (useful for debugging)
 - `--skip-pivot` - Only create the long-format CSV
 
@@ -53,16 +34,11 @@ Dependencies (Selenium and ChromeDriver) are installed automatically.
 
 ```bash
 # Basic usage
-uvx quickcoach-export --slug pt/fitcojohn
+uvx quickcoach-export --slug pt/fitcojoseph123
 
 # With custom delay and visible browser
-uvx quickcoach-export --slug pt/fitcojohn --delay 0.3 --headful
+uvx quickcoach-export --slug pt/fitcojoseph123 --delay 0.3 --headful
 
 # From local repo
-uv run quickcoach-export --slug pt/fitcojohn
+uv run quickcoach-export --slug pt/fitcojoseph123
 ```
-
-## Troubleshooting
-
-- **"No plan URLs found"**: Make sure you're logged into QuickCoach in your default Chrome profile
-- **Chrome not found**: Make sure Chrome is installed in the default location
