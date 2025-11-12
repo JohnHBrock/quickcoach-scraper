@@ -12,3 +12,6 @@ wheels/
 # Output files
 quickcoach-*.csv
 quickcoach_*.csv
+
+# Local settings
+.claude/settings.local.json
